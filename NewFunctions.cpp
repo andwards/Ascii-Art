@@ -1,5 +1,6 @@
-// Authors: James Casey, Joel Montano, Katie Warren, Christopher Wright, and Andrew Edwards
-// This program is an add on to the Text Art program. This adds a couple new menu options by using recursion.
+/**
+* This program is an add on to the Original Text Art program. This adds new menu options by using recursion.
+*/
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
@@ -394,7 +395,7 @@ char getPoint(Point& pt)
 			}
 		}
 
-		// If user inputs F1 - F12 keys, triggers conditional which asks for a second input and ignores the input.
+		// If user inputs F1 - F12 keys.
 		else if (input == '\0') {
 			input = _getch();
 		}

@@ -28,13 +28,11 @@ Node* newCanvas(Node* oldNode)
 }
 
 //helper functon to get the playrecursive function going. 
-//takes clips list as parameter.
 void play(List& clips)
 {
 	// loops as long as the ESCAPE key is not currently being pressed
 	while (!(GetKeyState(VK_ESCAPE) & 0x8000))
 	{
-		// Checks if there are more than 2 clips, if so calls playRecursive.
 		if (clips.count >= 2) {
 			playRecursive(clips.head, clips.count);
 
@@ -46,11 +44,10 @@ void play(List& clips)
 //takes pointer and number of clips in list.
 void playRecursive(Node* head, int count)
 {
-	// Checks if head is empty
 	if (head == NULL) {
 		return;
 	}
-	// If not empty, displays 2d array of item in the head struct. Displays command needed to quit out of the animation.
+
 	playRecursive(head->next, count - 1);
 
 	if ((GetKeyState(VK_ESCAPE) & 0x8000))
@@ -67,16 +64,13 @@ void playRecursive(Node* head, int count)
 
 void addUndoState(List& undoList, List& redoList, Node*& current)
 {
-	// Adds a node to the undoList and deletes the redoList
 	addNode(undoList, newCanvas(current));
 	deleteList(redoList);
 }
 
 //updates undolist and redolist with correct nodes to redo and undo. 
-//takes redolist/redolist and current node. 
 void restore(List& undoList, List& redoList, Node*& current)
 {
-	//Checks if the undoList contains any items, and if so adds the current node to the redoList and removes the first node from the undoList.
 	if (undoList.count > 0)
 	{
 		addNode(redoList, current);
@@ -107,7 +101,6 @@ Node* removeNode(List& list)
 	return temp;
 }
 
-// Deletes the entire list. .
 void deleteList(List& list)
 {
 	while (list.head != NULL) {
@@ -118,9 +111,6 @@ void deleteList(List& list)
 	list.count = 0;
 }
 
-
-//loads 2d arrays (canvases) to clips list and concatenates rest of filename.
-//takes clips list and filename as parameter.
 bool loadClips(List& clips, char filename[])
 {
 	char filePath[FILENAMESIZE];
@@ -152,8 +142,6 @@ bool loadClips(List& clips, char filename[])
 	}
 }
 
-//saves the 2d arrays (canvases) into the clips list and concatenates rest of filename. 
-//takes list for clips and filename as parameters.
 bool saveClips(List& clips, char filename[])
 {
 	char filePath[FILENAMESIZE];
