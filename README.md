@@ -32,7 +32,7 @@ This ASCII Text Art Program is a versatile tool that allows users to create, edi
 2. Run the program on your command line interface.
 3. Follow the on-screen instructions and use the provided commands to create, edit, and animate your ASCII art.
 
-## Authors
+## Contributors
 
-- Andrew Edwards ([@andwards](https://github.com/andwards))
+- [Andrew Edwards](https://github.com/andwards)
 
